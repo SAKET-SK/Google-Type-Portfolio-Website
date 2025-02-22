@@ -3,9 +3,7 @@
 This is a personal website simulating Google Search. Built with ReactJS.
 
 
-<kbd>
-<img src="screenshots/gfolio.gif"  />
- </kbd>
+
 
 ### Usage
 ```
