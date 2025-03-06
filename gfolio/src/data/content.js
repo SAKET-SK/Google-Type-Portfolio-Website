@@ -1,12 +1,13 @@
+// This is the actual content that our website will display
 export const Content = [
   {
-    category: "about",
-    link: `${window.location.origin}/about#me`,
+    category: "about",      // Seperated by category; helpful for navigating in multiple pages
+    link: `${window.location.origin}/about#me`,    // window.location.origin gives the base URL
     name: "Me, Myself and I",
     excerpt: `I am a developer and technical writer located in India. 
     I have a passion for creating dynamic, responsive, adaptable websites.
     Problem solver, high-attention to detail, and creative person. I strive for 
-    clarity, simplicity and creativity in my work`
+    clarity, simplicity and creativity in my work`     // Backticks are used for multi-line string
   },
   {
     category: "about",
@@ -26,7 +27,7 @@ export const Content = [
     link: `${window.location.origin}`,
     name: "Gfolio (this website)",
     excerpt: `A personal website simulating the Google Search platform. Developed with
-    HTML, CSSS and React`
+    HTML, CSS and React`
   },
   {
     category: "works",

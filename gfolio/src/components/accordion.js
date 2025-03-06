@@ -1,3 +1,4 @@
+// Expandable additional information for the section : "People also asked" from Google search results.
 import React, { useState } from "react";
 import "./accordion.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -9,7 +10,8 @@ import AccordionDetails from "@material-ui/core/AccordionDetails";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
-const useStyles = makeStyles((theme) => ({
+// useStyles is a function that generates styles using Material-UI's theme.
+const useStyles = makeStyles((theme) => ({      
   root: {
     width: "100%"
   },
@@ -61,7 +63,7 @@ const AccordionComponent = () => {
             <AccordionDetails>
               <Typography>
                 Yes. I am always open to work on innovate projects with 
-                creative projects. 
+                creative projects as well as job opportunities.
               </Typography>
             </AccordionDetails>
           </Accordion>
@@ -77,7 +79,7 @@ const AccordionComponent = () => {
             </AccordionSummary>
             <AccordionDetails>
               <Typography>
-               Definitely email. Contact me at saketkhopkar910@gmail.com.
+               Definitely email. You may Contact me at <a target="_blank" href="mailto:saketkhopkar910@gmail.com">saketkhopkar910@gmail.com</a>.
               </Typography>
             </AccordionDetails>
           </Accordion>
@@ -93,7 +95,7 @@ const AccordionComponent = () => {
             </AccordionSummary>
             <AccordionDetails>
               <Typography>
-              Meeting deadlines, targets or goals. mentoring and coaching others, learning new things, 
+              Meeting deadlines, targets or goals. Mentoring and coaching others, Learning new things, 
               coming up with creative ideas to improve something, and making something new.
               </Typography>
             </AccordionDetails>

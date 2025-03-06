@@ -1,3 +1,4 @@
+// This component reflects how the search results looks like
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import "./allResultsCard.css";
