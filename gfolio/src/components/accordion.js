@@ -30,10 +30,10 @@ const AccordionComponent = () => {
         <div className={classes.root}>
           <h2 style={{ fontWeight: "normal", color: "#333" }}>
             People also ask
-          </h2>
+          </h2>    {/* Accordion, AccordionSummary,ExpandMoreIcon, Typography and AccordionDetails are from yours truly - materialUI */}
           <Accordion>
             <AccordionSummary
-              expandIcon={<ExpandMoreIcon />}
+              expandIcon={<ExpandMoreIcon />}   // <ExpandMoreIcon /> is down arrow icon from material-ui, whch expands things below it.
               aria-controls="panel1a-content"
               id="panel1a-header"
             >
