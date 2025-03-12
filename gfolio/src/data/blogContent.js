@@ -1,3 +1,4 @@
+// This data component is used to store the content of the blogs that are displayed on the search page. The data is stored in an array of objects. 
 import geolocation from "../images/geolocation-api.jpg";
 import distanceTwoLoc from "../images/distance-two-locations.jpg";
 import svgAdvantages from "../images/svg-advantages-and-disadvantages.jpg";
@@ -8,6 +9,7 @@ import psychIcon from "../images/psych-logo.png";
 import techImage from "../images/technology-image.jfif";
 import jsImage from "../images/javascript-image.jfif";
 import aiImage from "../images/ai-image.jfif";
+
 export const BlogContent = [
   {
     link: "https://saketrobotics910.blogspot.com/",
