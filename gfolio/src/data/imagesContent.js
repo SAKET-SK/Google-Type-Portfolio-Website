@@ -1,15 +1,13 @@
+// This is for displaying images; upon clicking "Images" on the top.
 import tutcode from "../images/tutcode.png";
-// import enjeck from "../images/enjeck.png";
-// import ll from "../images/libre-logos.svg";
 import gfolio from "../images/gfolio.png";
 import jpg2svg from "../images/jpg2svg.png";
-// import gg from "../images/geo-guess.png";
 import blobby from "../images/blobby.png";
-// import cav from "../images/CryptographyVisualizer.png"
 import li from "../images/linkedIn-icon.png";
 import gh from "../images/github-icon.png";
 import email from "../images/gmail-icon.png";
 import placeholder from "../images/bg1.png";
+
 export const ImagesContent = [
   {
     link: "https://saket-sk.github.io/",
