@@ -19,6 +19,15 @@ export const BlogContent = [
     date: "15 hours ago"
   },
   {
+    link: "https://learnaimldswithsk.hashnode.dev/",
+    img: aiImage,
+    icon: techIcon,
+    name: "Honors of AI/ML/DS",
+    excerpt: `A Blogpost for covering concepts related to Artificial Intelligence, Machine Learning, and Data Science. This blogpost is helpful for those who are learning AI/ML/DS. It also contains bonus content such as Generative AI and RAG`,
+    category: "Technology",
+    date: "2 hours ago"
+  },
+  {
     link: "https://saketkhopkar567.blogspot.com/",
     img: distanceTwoLoc,
     icon: psychIcon,
@@ -26,15 +35,6 @@ export const BlogContent = [
     excerpt: `This Blogpost contains all about Psychology, thought and thinking one has to go through. Documented as an interest towards the field and willingness to explore it further.`,
     category: "Psychology",
     date: "2 days ago"
-  },
-  {
-    link: "https://saketskgames.blogspot.com/",
-    img: geolocation,
-    icon: gameIcon,
-    name: "World of E-Sports",
-    excerpt: `A Blogpost for E-Sports enhusiasts which focuses on various things about Gaming and its related resources. `,
-    category: "Games",
-    date: "1 days ago"
   },
   {
     link: "https://saketsk.hashnode.dev/",
@@ -55,13 +55,12 @@ export const BlogContent = [
     date: "6 days ago"
   },
   {
-    link: "https://learnaimldswithsk.hashnode.dev/",
-    img: aiImage,
-    icon: techIcon,
-    name: "Honors of AI/ML/DS",
-    excerpt: `A Blogpost for covering concepts related to Artificial Intelligence, Machine Learning, and Data Science. This blogpost is helpful for those who are learning AI/ML/DS. It also contains bonus content such as Generative AI and RAG`,
-    category: "Technology",
-    date: "2 hours ago"
+    link: "https://saketskgames.blogspot.com/",
+    img: geolocation,
+    icon: gameIcon,
+    name: "World of E-Sports",
+    excerpt: `A Blogpost for E-Sports enhusiasts which focuses on various things about Gaming and its related resources. `,
+    category: "Games",
+    date: "1 days ago"
   },
-  
 ];
