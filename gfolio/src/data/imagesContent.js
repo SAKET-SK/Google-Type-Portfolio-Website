@@ -48,11 +48,6 @@ export const ImagesContent = [
   },
   
   {
-    link: "https://github.com/SAKET-SK/Chess-Game-Project",
-    img: placeholder,
-    name: "A simple Chess Game in JavaScript",
-  },
-  {
     link: "https://github.com/SAKET-SK",
     img: gh,
     name: "GitHub - Explore my projects and code"

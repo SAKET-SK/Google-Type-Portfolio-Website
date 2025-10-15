@@ -38,12 +38,6 @@ export const Content = [
   },
   {
     category: "works",
-    link: "https://github.com/SAKET-SK/2D-Text-Based-Adventure-Game",
-    name: "2D Text Based Adventure Game",
-    excerpt: `A simple 2d Text Based Adventure Game made with Unity Game Engine and using C# Language for scripting`
-  },
-  {
-    category: "works",
     link: "https://www.ijrar.org/viewfull.php?&p_id=IJRAR22A2084",
     name: "Research Paper on Predicting Vehicle Health and Driving Characteristics",
     excerpt: `A research based project, solutions and their implementations are discussed thoroughly in the paper `
@@ -62,28 +56,10 @@ export const Content = [
   },
   {
     category: "works",
-    link: "https://github.com/SAKET-SK/Chess-Game-Project",
-    name: "Chess in HTML , CSS and JavaScript",
-    excerpt: `Chess Game made with cool effects in UI`,
-  },
-  {
-    category: "works",
     link: "https://github.com/SAKET-SK/Pathology-HMS-Sponsored-Project",
     name: "Pathology Management System in PHP",
     excerpt: `
     My first ever sponsored project implemented for local pathology labs with all required client requirements  `
-  },
-  {
-    category: "works",
-    link: "https://github.com/SAKET-SK/Chat-Application-using-Shared-Memory",
-    name: "Chat Application using Shared Memory",
-    excerpt: `Concept of Shared Memory implemented `
-  },
-  {
-    category: "works",
-    link: "https://github.com/SAKET-SK/CPUScheduler",
-    name: "Operating System Process Scheduler using Java",
-    excerpt: `A process visualizer, made with Java showcasing different algorithms in OS`,
   },
 
   {
