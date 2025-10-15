@@ -1,5 +1,5 @@
 import "./searchbox.css";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faSearch,
@@ -15,7 +15,6 @@ import MobileSearch from "./mobileSearch";
 import { Content } from "../data/content";
 
 const SearchBox = (props) => {
-
   // Get url pathname to use as search value
   const urlPathname = window.location.pathname;
   var rx = /[^/](.*)/g;
@@ -24,6 +23,16 @@ const SearchBox = (props) => {
   if (arr) {
     val = arr[0];
   }
+
+  const history = useHistory();
+  const searchInputRef = useRef(null);
+  const searchBoxRef = useRef(null);
+
+  // State management
+  const [searchValue, setSearchValue] = useState(val);
+  const [isDropdownVisible, setIsDropdownVisible] = useState(false);
+  const [isMobileSearchVisible, setIsMobileSearchVisible] = useState(false);
+  const [visibleOptions, setVisibleOptions] = useState(props.options);
 
   const imgStyle = {
     verticalAlign: "middle",
@@ -45,181 +54,183 @@ const SearchBox = (props) => {
     cursor: "pointer"
   };
 
-  const [isSearchActive, setSearchActive] = useState("false");
-
-  function showOptions() {
-    let el = document.querySelector(".search-select");
-    el.style.display = "block";
-
-    if (window.innerWidth < 768) {
-      /* Display another search bar on mobile screens */
-      document.querySelector(".mobile-search-box").style.display = "block";
-      /* Hide other search options on mobile screens */
-      document.querySelector(".search-select").style.display = "none";
-
-      /* Hide body when mobile search area is active */
-      document.querySelector("body").style.height = "100vh";
-      document.querySelector("body").style.overflow = "hidden";
-
-      /* Focus on search input so that user can begin typing 
-      immediately without having to click on it first*/
-      document.querySelector(".mobile-search-input").focus()
-    }
-  }
-
-  function hideOptions() {
-    // Delay element hiding by few milliseconds to ensure it can be clicked
-    setTimeout(function () {
-      let el = document.querySelector(".search-select");
-      el.style.display = "none";
-    }, 200);
-  }
-
+  // Handle clicks outside the search box
   useEffect(() => {
-    const clearBtn = document.querySelector(".clear-icon");
-    let input = document.querySelector(".search-input").value;
-    // Only show the clear button when the input field is nonempty
-    if (input) {
-      clearBtn.style.display = "none";
-    } else {
-      clearBtn.style.display = "inline-block";
-    }
+    const handleClickOutside = (event) => {
+      if (searchBoxRef.current && !searchBoxRef.current.contains(event.target)) {
+        setIsDropdownVisible(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
   }, []);
 
-  /// Remove option upon button click
-  function removeOption(i) {
-    // i.remove();
-    i.style.display = "none";
-  }
-
-  // Clear input field
-  function clear() {
-    let input = document.querySelector(".search-input");
-    input.value = "";
-  }
-
-  // Show the clear button when the search input field is nonempty
-  const clearValue = () => {
-    let closeIcon = document.querySelector(".clear-icon");
-    let searchValue = document.querySelector(".search-input").value;
-    if (searchValue) {
-      closeIcon.style.display = "inline-block";
-      // When the search input is not empty, give it a subtle box shadow
-      document.querySelector(
-        ".search"
-      ).style.boxShadow = `1px 1px 6px rgba(0,0,0,0.2)`;
-    } else {
-      closeIcon.style.display = "none";
-      document.querySelector(".search").style.boxShadow = `none`;
-    }
-  };
-
+  // Handle mobile search visibility
   useEffect(() => {
-    // Trigger search when enter key is pressed
-    let inputField = document.querySelector(".search-input");
-    inputField.addEventListener("keyup", function (event) {
+    if (isMobileSearchVisible) {
+      document.querySelector("body").style.height = "100vh";
+      document.querySelector("body").style.overflow = "hidden";
+    } else {
+      document.querySelector("body").style.height = "";
+      document.querySelector("body").style.overflow = "";
+    }
+  }, [isMobileSearchVisible]);
+
+  // Trigger search on Enter key
+  useEffect(() => {
+    const handleKeyPress = (event) => {
       if (event.keyCode === 13) {
         event.preventDefault();
         searchWebsite();
       }
-    });
+    };
 
-    // As soon as the page loads, show the clear button if the search input field is nonempty
-    let closeIcon = document.querySelector(".clear-icon");
-    let searchValue = document.querySelector(".search-input").value;
-    if (searchValue) {
-      closeIcon.style.display = "inline-block";
-      document.querySelector(
-        ".search"
-      ).style.boxShadow = `1px 1px 6px rgba(0,0,0,0.2)`;
-    } else {
-      closeIcon.style.display = "none";
+    const inputField = searchInputRef.current;
+    if (inputField) {
+      inputField.addEventListener("keyup", handleKeyPress);
+      return () => {
+        inputField.removeEventListener("keyup", handleKeyPress);
+      };
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [searchValue]);
 
-  // "Search" Website, which works by pushing the search term to the url and redirecting to it
-  const history = useHistory();
+  const showOptions = () => {
+    if (window.innerWidth < 768) {
+      setIsMobileSearchVisible(true);
+      setIsDropdownVisible(false);
+    } else {
+      setIsDropdownVisible(true);
+    }
+  };
+
+  const hideOptions = () => {
+    // Small delay to allow link clicks to register
+    setTimeout(() => {
+      setIsDropdownVisible(false);
+    }, 200);
+  };
+
+  const removeOption = (index) => {
+    setVisibleOptions(prev => prev.filter((_, i) => i !== index));
+  };
+
+  const clearSearchInput = () => {
+    setSearchValue("");
+    if (searchInputRef.current) {
+      searchInputRef.current.focus();
+    }
+  };
+
+  const handleSearchChange = (e) => {
+    setSearchValue(e.target.value);
+  };
+
+  // "Search" Website
   const searchWebsite = () => {
-    let path = document.querySelector(".search-input").value;
-    if (path) {
-      history.push(path);
+    if (searchValue) {
+      history.push(searchValue);
+      setIsDropdownVisible(false);
     }
   };
 
   // I'm Feeling Lucky search
-  function feelingLucky() {
-    let path = document.querySelector(".search-input").value;
-
+  const feelingLucky = () => {
     // Route to random page if search input is empty
-    if (!path) {
-      history.push(`/${props.options[Math.floor(Math.random() * props.options.length)].value}`);
+    if (!searchValue) {
+      const randomOption = visibleOptions[Math.floor(Math.random() * visibleOptions.length)];
+      history.push(`/${randomOption.value}`);
+      setIsDropdownVisible(false);
       return;
     }
 
-    /* Get all elements matching the search term */
-    const item = Content.filter((item) => item.category === path);
-    // Get the link of the first match
+    // Get all elements matching the search term
+    const item = Content.filter((item) => item.category === searchValue);
+    
     // Redirect to first match, if it exists
     if (item[0]) {
-      const url = item[0].link;
-      window.location.href = url;
-    } else if (path) {
-      history.push(path);
+      window.location.href = item[0].link;
+    } else if (searchValue) {
+      history.push(searchValue);
     }
-  }
+    setIsDropdownVisible(false);
+  };
+
+  // Handle option click - navigate immediately
+  const handleOptionClick = (optionValue) => {
+    history.push(`/${optionValue}`);
+    setIsDropdownVisible(false);
+  };
 
   return (
     <div>
       <div>
         <MobileSearch />
       </div>
-      <div className="search-box">
+      <div className="search-box" ref={searchBoxRef}>
         <div className="search-cont">
           <FontAwesomeIcon className="fa fa-search" icon={faSearch} />
 
           <div className="search">
             <div className="search-value">
               <input
+                ref={searchInputRef}
                 placeholder=" "
                 autoComplete="on"
                 className="search-input"
-                defaultValue={val}
+                value={searchValue}
                 onFocus={showOptions}
                 onBlur={hideOptions}
-                onChange={clearValue}
+                onChange={handleSearchChange}
+                style={{
+                  boxShadow: searchValue ? '1px 1px 6px rgba(0,0,0,0.2)' : 'none'
+                }}
               />
             </div>
-            <div className="search-select">
-              <div className="search-options">
-                {props.options.map((option) => (
-                  <div className="search-option" type="button">
-                    <span>
-                      <FontAwesomeIcon
-                        className="fas"
-                        icon={faHistory}
-                        style={imgStyle}
-                      />
-                      <Link to={`/${option.value}`}>{option.name}</Link>
+            
+            {isDropdownVisible && (
+              <div className="search-select" style={{ display: 'block' }}>
+                <div className="search-options">
+                  {visibleOptions.map((option, index) => (
+                    <div 
+                      key={index} 
+                      className="search-option" 
+                      type="button"
+                    >
                       <span>
-                        <button
-                          className="remove-btn"
-                          style={removeBtnStyle}
-                          onClick={(e) =>
-                            removeOption(
-                              e.currentTarget.parentElement.parentElement
-                                .parentElement
-                            )
-                          }
+                        <FontAwesomeIcon
+                          className="fas"
+                          icon={faHistory}
+                          style={imgStyle}
+                        />
+                        <span
+                          style={{ cursor: 'pointer' }}
+                          onMouseDown={(e) => {
+                            e.preventDefault();
+                            handleOptionClick(option.value);
+                          }}
                         >
-                          Remove
-                        </button>
+                          {option.name}
+                        </span>
+                        <span>
+                          <button
+                            className="remove-btn"
+                            style={removeBtnStyle}
+                            onMouseDown={(e) => {
+                              e.preventDefault();
+                              e.stopPropagation();
+                              removeOption(index);
+                            }}
+                          >
+                            Remove
+                          </button>
+                        </span>
                       </span>
-                    </span>
-                  </div>
-                ))}
-              </div>
-              {
+                    </div>
+                  ))}
+                </div>
                 <div
                   className="search-btns"
                   style={{ paddingTop: "20px", paddingBottom: "30px" }}
@@ -228,24 +239,34 @@ const SearchBox = (props) => {
                     className="search-btn sw"
                     type="button"
                     value="Search Website"
-                    onClick={searchWebsite}
+                    onMouseDown={(e) => {
+                      e.preventDefault();
+                      searchWebsite();
+                    }}
                   />
                   <input
                     className="search-btn ifl"
                     type="button"
                     value="I'm Feeling Lucky"
-                    onClick={feelingLucky}
+                    onMouseDown={(e) => {
+                      e.preventDefault();
+                      feelingLucky();
+                    }}
                   />
                 </div>
-              }
-            </div>
+              </div>
+            )}
           </div>
-          <FontAwesomeIcon
-            className="fa fa-times clear-icon"
-            icon={faTimes}
-            title="Clear"
-            onClick={clear}
-          />
+          
+          {searchValue && (
+            <FontAwesomeIcon
+              className="fa fa-times clear-icon"
+              icon={faTimes}
+              title="Clear"
+              onClick={clearSearchInput}
+              style={{ display: 'inline-block' }}
+            />
+          )}
         </div>
       </div>
     </div>
