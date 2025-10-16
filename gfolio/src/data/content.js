@@ -1,96 +1,92 @@
-// This is the actual content that our website will display
+// content.js
+// Centralized content file for the Google-style portfolio website
+// Each entry represents a "search result" with title, link, and snippet
+
 export const Content = [
+  // 🧍 ABOUT SECTION
   {
-    category: "about",      // Seperated by category; helpful for navigating in multiple pages
-    link: `${window.location.origin}/about#me`,    // window.location.origin gives the base URL
-    name: "Me, Myself and I",
-    excerpt: `I am a developer and technical writer located in India. 
-    I have a passion for creating dynamic, responsive, adaptable websites.
-    Problem solver, high-attention to detail, and creative person. I strive for 
-    clarity, simplicity and creativity in my work`     // Backticks are used for multi-line string
+    category: "about",
+    link: `${window.location.origin}/about#me`,
+    name: "Who is Saket Khopkar?",
+    excerpt: `A Node.js and JavaScript developer passionate about creating AI-driven, scalable, and high-performance web solutions. 
+    I enjoy blending logical problem-solving with creativity to build applications that are both intelligent and intuitive.`
   },
   {
     category: "about",
     link: `${window.location.origin}/about#skills`,
-    name: "An overview of my technical skills and interests",
-    excerpt: `HTML, CSS, JavaScript, Java, Unity C# Game Development, MySQL, Python, 
-    Documentation, UI Design, PHP.`
+    name: "Core Skills & Technical Expertise",
+    excerpt: `Node.js, Express.js, React, JavaScript (ES6+), Python, REST APIs, MongoDB, MySQL, AI/LLM Integrations, LangChain, CrewAI and Generative AI Applications.`
   },
+
+  // 💼 WORKS SECTION
   {
     category: "works",
     link: "https://github.com/SAKET-SK",
-    name: "Github Repository - My Project & Code Storage",
-    excerpt: `A website where developers store their source codes !!! You can view my all works here.`
+    name: "GitHub - Saket Khopkar",
+    excerpt: `My central repository for open-source projects, code experiments, and collaborations. Explore numerous projects and technical write-ups here.`
   },
   {
     category: "works",
     link: `${window.location.origin}`,
-    name: "Gfolio (this website)",
-    excerpt: `A personal website simulating the Google Search platform. Developed with
-    HTML, CSS and React`
+    name: "Gfolio - A Google-style Portfolio",
+    excerpt: `A personal web project that mimics Google Search. Built with HTML, CSS, and React to combine simplicity with playful interactivity.`
   },
   {
     category: "works",
     link: "https://saket-sk.github.io/",
     name: "Personal Website",
-    excerpt: `My personal website, designed and developed from scratch. It
-    features a lot of hover effects, custom styling and a blog.`
+    excerpt: `My classic portfolio — designed and developed from scratch with custom hover effects, unique layouts, and an integrated blog.`
   },
   {
     category: "works",
     link: "https://www.ijrar.org/viewfull.php?&p_id=IJRAR22A2084",
-    name: "Research Paper on Predicting Vehicle Health and Driving Characteristics",
-    excerpt: `A research based project, solutions and their implementations are discussed thoroughly in the paper `
+    name: "Research Paper - Predicting Vehicle Health & Driving Characteristics",
+    excerpt: `A published research project discussing predictive models for vehicle health assessment and driver behavior analysis.`
   },
   {
     category: "works",
-    link: "https://github.com/SAKET-SK/The-Java-Programming-Repository",
-    name: "The Java Programming Repository",
-    excerpt: `All the knowledge of Java Programming which I learnt over the years have been documented in the in the repository as well as in the Wiki Section of this same repository`
+    link: "https://github.com/SAKET-SK/Data-Science-Lab",
+    name: "My Ultimate Data Science and AI Repository",
+    excerpt: `An extensive self-documented collection of AI/ML concepts, exercises, and real-world examples — created for learners and professionals alike.`
   },
   {
     category: "works",
-    link: "https://github.com/SAKET-SK/FPS-GAME",
-    name: "The Ultimate First Person Shooter Game",
-    excerpt: `Made using Unity 3D Game Engine and used C# for Scripting, this game is in early stages of development and can be used as a template for further designs`
+    link: "https://github.com/SAKET-SK/FULL-STACK-WEBDEV-REPO",
+    name: "Full Stack Web Development Repository",
+    excerpt: `A comprehensive collection of full-stack web development projects, tutorials, and resources covering both frontend and backend technologies.`
   },
   {
     category: "works",
-    link: "https://github.com/SAKET-SK/Pathology-HMS-Sponsored-Project",
-    name: "Pathology Management System in PHP",
-    excerpt: `
-    My first ever sponsored project implemented for local pathology labs with all required client requirements  `
+    link: "https://github.com/SAKET-SK/Programming-Aptitude-Interview-Prep",
+    name: "Programming Aptitude & Interview Preperation by Saket",
+    excerpt: `A curated collection of programming problems, solutions, and interview prep questions to help developers sharpen their coding skills.`
   },
 
+  // ✍️ WRITING SECTION
   {
     category: "writing",
     link: "https://saketrobotics910.blogspot.com/",
-    name: "Education and Technical Blog",
-    excerpt: `This Blogspot contains all the information regarding latest technological advancements as well some educational tips so as for one to improve in that aspect `,
+    name: "TechTales - Education & Technology Blog",
+    excerpt: `Articles exploring the latest in technology, innovation, and education — written to inspire curiosity and creative learning.`
   },
   {
     category: "writing",
     link: "https://saketkhopkar567.blogspot.com/",
-    name: "Psych Time",
-    excerpt: `This Blogpost contains all about Psychology, thought and thinking one has to go through. Documented as an interest towards the field and willingness to explore it further.`,
+    name: "Psych Time - Exploring Human Thought",
+    excerpt: `A collection of writings about psychology, behavior, and emotional intelligence — a deep dive into the human mind.`
   },
   {
     category: "writing",
     link: "https://saketskgames.blogspot.com/",
     name: "World of E-Sports",
-    excerpt: `A Blogpost for E-Sports enhusiasts which focuses on various things about Gaming and its related resources.`,
+    excerpt: `A blog for e-sports enthusiasts — covering gaming trends, competitive insights, and the culture surrounding digital sports.`
   },
 
+  // 🌐 SOCIAL SECTION
   {
     category: "social",
     link: "https://www.linkedin.com/in/saket-khopkar-336684198/",
-    name: "LinkedIn",
-    excerpt: `Connect and share experiences`
-  },
-  {
-    category: "social",
-    link: "https://github.com/SAKET-SK",
-    name: "GitHub",
-    excerpt: `View my projects and code.`
+    name: "LinkedIn - Saket Khopkar",
+    excerpt: `Connect with me professionally, explore experiences, or collaborate on future opportunities.`
   }
 ];
