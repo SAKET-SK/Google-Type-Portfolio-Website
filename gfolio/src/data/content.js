@@ -15,7 +15,7 @@ export const Content = [
     category: "about",
     link: `${window.location.origin}/about#skills`,
     name: "Core Skills & Technical Expertise",
-    excerpt: `Node.js, Express.js, React, JavaScript (ES6+), Python, REST APIs, MongoDB, MySQL, AI/LLM Integrations, LangChain, CrewAI and Generative AI Applications.`
+    excerpt: `Node.js, Express.js, , AI/LLM Integrations, LangChain, CrewAI, Generative AI Applications, JavaScript (ES6+), Python, REST APIs, MongoDB and MySQL.`
   },
 
   // 💼 WORKS SECTION

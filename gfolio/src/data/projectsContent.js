@@ -7,6 +7,7 @@ import jpg2svg from "../images/jpg2svg.png";
 import blobby from "../images/blobby.png";
 // import cav from "../images/CryptographyVisualizer.png"
 import placeholder from "../images/bg1.png";
+import rag_mcp from "../images/RAG-MCP-HR.png"
 export const ProjectsContent = [
   {
     link: "https://saket-sk.github.io/",
@@ -33,11 +34,11 @@ export const ProjectsContent = [
     tools: "JavaScript · c#"
   },
   {
-    link: "https://github.com/SAKET-SK/Pathology-HMS-Sponsored-Project",
-    img: placeholder,
-    name: "Pathology Lab Management System",
-    excerpt: `My first ever sponsored project implemented for local pathology labs with all required client requirements`,
-    tools: "PHP . MySQL"
+    link: "https://github.com/SAKET-SK/RAG-MCP-Project",
+    img: rag_mcp,
+    name: "MCP-Powered RAG Assistant for HR Operations",
+    excerpt: `An Intelligent HR assistant that orchestrates multiple data sources using Model Context Protocol (MCP) and  Retrieval-Augmented Generation (RAG) techniques to provide accurate and context-aware responses to HR-related queries.`,
+    tools: "Python (Steamlit) . RAG · MCP"
   },
   {
     link: "https://github.com/SAKET-SK/OpenCV",
@@ -47,11 +48,11 @@ export const ProjectsContent = [
     tools: "JavaScript · Python"
   },
   {
-    link: "https://github.com/SAKET-SK/FPS-GAME",
-    img: blobby,
-    name: "Ultimate First Person Shooter Game",
-    excerpt: `Made using Unity 3D Game Engine and used C# for Scripting, this game is in early stages of development and can be used as a template for further designs`,
-    tools: "Unity Game Engine · c#"
+    link: "https://saketkhopkar.netlify.app/",
+    img: tutcode,
+    name: "Minimalist Portfolio Website",
+    excerpt: `New portfolio website : A Minimalistic and Modern version`,
+    tools: "JavaScript · HTML/CSS"
   },
   {
     link: "https://github.com/SAKET-SK/Election-Web",

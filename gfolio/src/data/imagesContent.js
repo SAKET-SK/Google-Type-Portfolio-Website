@@ -7,6 +7,7 @@ import li from "../images/linkedIn-icon.png";
 import gh from "../images/github-icon.png";
 import email from "../images/gmail-icon.png";
 import placeholder from "../images/bg1.png";
+import rag_mcp from "../images/RAG-MCP-HR.png"
 
 export const ImagesContent = [
   {
@@ -27,9 +28,9 @@ export const ImagesContent = [
     name: "2D Text Based Game",
   },
   {
-    link: "https://github.com/SAKET-SK/Pathology-HMS-Sponsored-Project",
-    img: placeholder,
-    name: "Pathology HMS Project",
+    link: "https://github.com/SAKET-SK/RAG-MCP-Project",
+    img: rag_mcp,
+    name: "MCP-Powered RAG Assistant for HR Operations",
   },
   {
     link: "https://github.com/SAKET-SK/OpenCV",
@@ -37,9 +38,9 @@ export const ImagesContent = [
     name: "Open CV Project",
   },
   {
-    link: "https://github.com/SAKET-SK/FPS-GAME",
-    img: blobby,
-    name: "Ultimate First Person Shooter Game",
+    link: "https://saketkhopkar.netlify.app/",
+    img: tutcode,
+    name: "Minimalist Portfolio Website",
   },
   {
     link: "https://github.com/SAKET-SK/Election-Web",
@@ -50,7 +51,7 @@ export const ImagesContent = [
   {
     link: "https://github.com/SAKET-SK",
     img: gh,
-    name: "GitHub - Explore my projects and code"
+    name: "GitHub - Explore more projects and code"
   },
   {
     link: "https://www.linkedin.com/in/saket-khopkar-336684198/",
