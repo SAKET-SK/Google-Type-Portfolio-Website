@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit a Query</title>
+
+    <link rel="stylesheet" href="query.css">
+
+    <!-- EmailJS -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+    <script>
+        (function() {
+            emailjs.init("SVGG2rcl0GAtjc2D5");
+        })();
+    </script>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Submit a Query</h2>
+        <p class="subtitle">I'll reply to your message soon.</p>
+
+        <form id="contact-form">
+            
+            <label>Email Address:</label>
+            <input
+                type="email"
+                id="emailID"
+                name="senderEmail"
+                placeholder="your.email@example.com"
+                required
+            />
+
+            <label>Your Name:</label>
+            <input
+                type="text"
+                id="username"
+                name="senderName"
+                placeholder="Your Name"
+                required
+            />
+
+            <label>Your Message:</label>
+            <textarea
+                id="query"
+                name="senderMessage"
+                placeholder="Write your message..."
+                required
+            ></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+
+        <p class="back-link">
+            <a href="/" target="_self">← Back to Portfolio</a>
+        </p>
+    </div>
+
+    <script src="query.js"></script>
+</body>
+</html>
